@@ -1,18 +1,23 @@
 <div>
-  Green Box
+  {{text}}
 </div>
 
 <style>
   div {
-    height: 40px;
+    height: 45px;
     text-align:center;
     padding:10px;
     width: 100%;
     background: green;
-    color: #fff
+    color: #fff;
+    border: 1px solid #fff;
   }
 </style>
 
 <script>
-  export default {}
+  export default {
+    data(){
+      return {text: 'Green Box'}
+    }
+  }
 </script>

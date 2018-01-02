@@ -1,0 +1,33 @@
+<div class="component">
+  <p class="has-text-centered subtitle is-5">This component has an <code>each</code> block</p>
+  <div class="columns is-multiline">
+  {{#each numbers as number}}
+    {{#if number%2 == 0}}
+      <div class="column">
+        <Red text="{{number}}" />
+      </div>
+    {{else}}
+      <div class="column">
+        <Green text="{{number}}" />
+      </div>
+    {{/if}}
+  {{/each}}
+  </div>
+</div>
+
+
+<script>
+  import Red from './Red.html';
+  import Green from './Green.html';
+
+  export default {
+    components:{
+      Red, Green
+    },
+    data(){
+      return {
+        numbers:[1,2,3,4,5,6]
+      }
+    }
+  }
+</script>

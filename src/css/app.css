@@ -1,3 +1,8 @@
 html,body{
+  background: #fff;
+}
+
+.component{
   background: #f1f1f1;
+  padding:1rem;
 }
