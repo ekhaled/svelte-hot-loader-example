@@ -1,0 +1,18 @@
+<div>
+  <p class="has-text-centered subtitle is-5">This component has a dynamic component</p>
+<:Component {$flag ? Green : Red} />
+</div>
+
+<script>
+
+  import Red from './Red.html';
+  import Green from './Green.html';
+
+  export default {
+    data(){
+      return {
+        Red, Green
+      }
+    }
+  }
+</script>

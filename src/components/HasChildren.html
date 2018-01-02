@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="columns">
+    <div class="column">
+      <HasInnerState />
+    </div>
+    <div class="column">
+      <HasIfCondition />
+      <hr>
+      <HasDynamicComponent />
+    </div>
+  </div>
+</div>
+
+
+<script>
+  import HasInnerState from './HasInnerState.html';
+  import HasIfCondition from './HasIfCondition.html';
+  import HasDynamicComponent from './HasDynamicComponent.html';
+
+  export default {
+    components:{
+      HasInnerState, HasIfCondition, HasDynamicComponent
+    }
+  }
+</script>

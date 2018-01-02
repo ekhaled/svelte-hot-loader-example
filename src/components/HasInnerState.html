@@ -1,0 +1,15 @@
+<div class="content">
+  <p class="has-text-centered subtitle is-5">This component has inner state</p>
+  <p>The current value of <code>innerValue</code> is <b>{{innerValue}}</b>. <br>You can change the inner state below:</p>
+  <input type="text" class="input" bind:value="innerValue" />
+</div>
+
+<script>
+  export default {
+    data(){
+      return {
+        innerValue:"Foo"
+      }
+    }
+  }
+</script>
