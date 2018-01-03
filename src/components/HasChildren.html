@@ -2,13 +2,26 @@
   <div class="columns">
     <div class="column">
       <HasInnerState />
-      <hr>
-      <HasRepeater />
     </div>
     <div class="column">
       <HasIfCondition />
-      <hr>
+    </div>
+    <div class="column">
       <HasDynamicComponent />
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <HasRepeater />
+    </div>
+    <div class="column">
+      <HasSlot>
+        <div slot="slot1">
+          <Red text="Named slot" />
+        </div>
+
+        <Green text="Default slot" />
+      </HasSlot>
     </div>
   </div>
 </div>
@@ -19,10 +32,14 @@
   import HasIfCondition from './HasIfCondition.html';
   import HasDynamicComponent from './HasDynamicComponent.html';
   import HasRepeater from './HasRepeater.html';
+  import HasSlot from './HasSlot.html';
+
+  import Red from './Red.html';
+  import Green from './Green.html';
 
   export default {
     components:{
-      HasInnerState, HasRepeater, HasIfCondition, HasDynamicComponent
+      HasInnerState, HasRepeater, HasIfCondition, HasDynamicComponent, HasSlot, Red, Green
     }
   }
 </script>
