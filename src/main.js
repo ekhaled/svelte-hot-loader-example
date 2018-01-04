@@ -7,8 +7,4 @@ var app = new App({
   store
 });
 
-if (module.hot) {
-  module.hot.accept();
-}
-
 export default app;

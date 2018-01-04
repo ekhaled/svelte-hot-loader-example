@@ -3,13 +3,9 @@
   <div class="columns is-multiline">
   {{#each numbers as number}}
     {{#if number%2 == 0 && $flag}}
-      <div class="column">
-        <Red text="{{number}}" />
-      </div>
+      <Red text="{{number}}" />
     {{else}}
-      <div class="column">
-        <Green text="{{number}}" />
-      </div>
+      <Green text="{{number}}" />
     {{/if}}
   {{/each}}
   </div>
@@ -26,7 +22,7 @@
     },
     data(){
       return {
-        numbers:[1,2,3,4,5,6]
+        numbers:[1,2,3,4,5]
       }
     }
   }

@@ -20,7 +20,11 @@
           <Red text="Named slot" />
         </div>
 
-        <Green text="Default slot" />
+        {{#if $flag}}
+          <Green text="Default slot - flag:true" />
+        {{else}}
+          <Red text="Default slot - flag:false" />
+        {{/if}}
       </HasSlot>
     </div>
   </div>

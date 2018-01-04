@@ -33,7 +33,7 @@ module.exports = {
         }, {
           loader: 'svelte-loader',
           query: {
-            dev: true,
+            dev: false,
             emitCss: false,
             store: true
           }
