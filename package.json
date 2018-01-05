@@ -10,7 +10,7 @@
     "style-loader": "^0.19.0",
     "svelte": "^1.50.1",
     "svelte-extras": "^1.4.1",
-    "svelte-hot-loader": "^1.0.0",
+    "svelte-hot-loader": "^1.1.0",
     "svelte-loader": "^2.2.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"

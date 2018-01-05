@@ -1,5 +1,5 @@
 <div class="component">
-  <p class="has-text-centered subtitle is-5">This component has an <code>each</code> block</p>
+  <p class="has-text-centered subtitle is-5">This component has an <code>each</code> block, and it does not preserve state on hot-reload</p>
   <div class="columns is-multiline">
   {{#each numbers as number}}
     {{#if number%2 == 0 && $flag}}
@@ -17,6 +17,10 @@
   import Green from './Green.html';
 
   export default {
+    setup(comp) {
+      //this component asks for it's state not to be preserved on hot-reload
+      comp.noPreserveState = true;
+    },
     components:{
       Red, Green
     },
