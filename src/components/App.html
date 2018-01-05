@@ -1,7 +1,16 @@
 <div class="content-area">
   <Title />
   <hr/>
-  <Inputs />
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8">
+        <Inputs />
+      </div>
+      <div class="column">
+        <HasLifecycle />
+      </div>
+    </div>
+  </div>
   <hr />
   <HasChildren />
 </div>
@@ -11,10 +20,11 @@
   import Title from './Title.html';
   import Inputs from './Inputs.html';
   import HasChildren from './HasChildren.html';
+  import HasLifecycle from './HasLifecycle.html';
 
   export default {
     components: {
-      Title, Inputs, HasChildren
+      Title, Inputs, HasChildren, HasLifecycle
     }
   };
 </script>

@@ -1,0 +1,108 @@
+<div class="component">
+  <canvas ref:cnv width="{{width}}" height="{{height}}" on:click="resize()"></canvas>
+</div>
+
+<style>
+  .component{
+    width:100%;
+    height:100%;
+    max-width:100%;
+    max-height:100%;
+    padding:0;
+    line-height: 0;
+  }
+  canvas{
+    padding:0;
+    margin:0;
+    display: inline-block;
+    position: relative;
+  }
+</style>
+
+<script>
+  export default {
+    data:() => ({
+      x: 25,
+      y: 25,
+      width: 0,
+      height: 0,
+      _moveX: 0,
+      _moveY: 0
+    }),
+    oncreate(){
+      var self = this,
+      canvas = self.refs.cnv,
+      ctx = canvas.getContext('2d'),
+
+      //try changing these
+      velocity = 3,
+      angle = 45,
+      radius = 10,
+      fill = '#00d1b2',
+      stroke = '#ff3860',
+      line = 2;
+
+      var dirX = self.get('_moveX') < 0 ? -1 : 1,
+      dirY = self.get('_moveY') < 0 ? -1 : 1;
+      self.set({
+        _moveX: Math.cos(Math.PI / 180 * angle) * velocity * dirX,
+        _moveY: Math.sin(Math.PI / 180 * angle) * velocity * dirY
+      });
+
+      self.frame = null;
+
+      function draw(){
+        var opts = self.get();
+
+        if(opts){
+          ctx.clearRect(0, 0, opts.width, opts.height);
+
+          if (opts.x > opts.width - radius || opts.x < radius) {
+            opts._moveX = -opts._moveX;
+          }
+          if (opts.y > opts.height - radius || opts.y < radius) {
+            opts._moveY = -opts._moveY;
+          }
+
+          opts.x += opts._moveX;
+          opts.y += opts._moveY;
+
+          ctx.beginPath();
+          ctx.fillStyle = fill;
+          ctx.strokeStyle = stroke;
+          ctx.lineWidth = line;
+          ctx.arc(opts.x, opts.y, radius, 0, Math.PI * 2, false);
+          ctx.fill();
+          ctx.stroke();
+          ctx.closePath();
+        }
+
+        self.set(opts);
+
+        self.frame = requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', self.resize, false);
+
+      self.resize();
+      self.frame = requestAnimationFrame(draw);
+
+    },
+    ondestroy(){
+      window.removeEventListener('resize', this.resize, false);
+      this.frame && cancelAnimationFrame(this.frame);
+    },
+    methods:{
+      resize(){
+        if(!this.refs){return}
+
+        var canvas = this.refs.cnv,
+        rect = canvas.parentNode.getBoundingClientRect(),
+        height = rect.height,
+        width = rect.width;
+
+        this.set({width, height});
+      }
+    }
+  }
+</script>
